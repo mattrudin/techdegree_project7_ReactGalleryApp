@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'Tahkie';
+    src: url('./Fonts/Takhie.ttf') format('truetype');
+}
+
+.title {
+    font-family: 'Tahkie';
+    font-size: 8em;
+    margin-bottom: 0;
+}
