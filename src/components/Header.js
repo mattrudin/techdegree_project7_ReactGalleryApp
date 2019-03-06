@@ -4,7 +4,7 @@ import Navigation from './Navigation';
 
 const GalleryItem = props => (
     <>
-        <SearchForm />
+        <SearchForm onSearch={props.onSearch}/>
         <Navigation />
     </>
 );
