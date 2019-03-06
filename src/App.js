@@ -4,7 +4,7 @@ import './App.css';
 import apiKey from './config';
 import SearchForm from './components/SearchForm';
 import Navigation from './components/Navigation';
-import Results from './components/Results'
+import Gallery from './components/Gallery'
 
 class App extends Component {
   render() {
@@ -12,7 +12,7 @@ class App extends Component {
       <div className="container">
         <SearchForm />
         <Navigation />
-        <Results />
+        <Gallery />
       </div>
     );
   }

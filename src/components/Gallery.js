@@ -1,9 +1,14 @@
 import React from 'react'
+import GalleryItem from './GalleryItem';
 
-const Results = props => (
+const Gallery = props => (
     <div class="photo-container">
         <h2>Results</h2>
         <ul>
+          <GalleryItem
+            src="https://farm5.staticflickr.com/4334/37032996241_4c16a9b530.jpg"
+            alt="cute cat"
+            />
           <li>
             <img src="https://farm5.staticflickr.com/4334/37032996241_4c16a9b530.jpg" alt="" />
           </li>
@@ -25,4 +30,4 @@ const Results = props => (
       </div>
 )
 
-export default Results
+export default Gallery
