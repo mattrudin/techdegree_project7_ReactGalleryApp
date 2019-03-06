@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Navigation = props => (
     <nav class="main-nav">
@@ -8,6 +8,6 @@ const Navigation = props => (
           <li><a href='#'>Computers</a></li>
         </ul>
       </nav>
-)
+);
 
-export default Navigation
+export default Navigation;

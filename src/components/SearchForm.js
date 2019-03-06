@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const SearchForm = props => (
     <form class="search-form">
@@ -10,6 +10,6 @@ const SearchForm = props => (
           </svg>
         </button>
       </form>
-)
+);
 
-export default SearchForm
+export default SearchForm;
