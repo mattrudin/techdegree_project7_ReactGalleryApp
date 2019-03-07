@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
+import {
+  BrowserRouter,
+  Route,
+  Switch
+} from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
 import apiKey from './config';
 import Header from './components/Header';
-import Gallery from './components/Gallery'
+import Gallery from './components/Gallery';
+import NotFound from './components/NotFound';
 
 class App extends Component {
   state = {
@@ -22,12 +28,15 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
-        <Header onSearch={this.performSearch} />
-        <Gallery 
-          pictures={this.state.images}
-          initialState={this.state.initialState} />
-      </div>
+      <BrowserRouter>
+        <div className="container">
+          <Header onSearch={this.performSearch} />
+          <Switch>
+            <Route exact path="/" component={() => <Gallery pictures={this.state.images} initialState={this.state.initialState} />} />
+            <Route component={NotFound} />
+          </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
 };
