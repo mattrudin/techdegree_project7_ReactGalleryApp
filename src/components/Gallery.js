@@ -4,7 +4,6 @@ import NoResult from './NoResult';
 
 const Gallery = props => {
   const { initialState, pictures } = props;
-
   let result;
   if(initialState) {
     result = null;

@@ -18,7 +18,7 @@ class App extends Component {
   }
 
   performSearch = query => {
-    axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=817f1e338c444ff681b9b3ebbe4836a6&text=${query}&per_page=24&format=json&nojsoncallback=1`)
+    axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&text=${query}&per_page=24&format=json&nojsoncallback=1`)
       .then(res => this.setState({
         images: res.data.photos.photo,
         initialState: false
@@ -32,7 +32,7 @@ class App extends Component {
         <div className="container">
           <Header onSearch={this.performSearch} />
           <Switch>
-            <Route exact path="/" component={() => <Gallery pictures={this.state.images} initialState={this.state.initialState} />} />
+            <Route exact path="/search/:query" component={() => <Gallery pictures={this.state.images} initialState={this.state.initialState} />} />
             <Route component={NotFound} />
           </Switch>
         </div>
