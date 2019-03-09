@@ -3,11 +3,13 @@ import GalleryItem from './GalleryItem';
 import NoResult from './NoResult';
 
 const Gallery = props => {
-    const { initialState, pictures, query } = props;
+    const { initialState, pictures, query, isLoading } = props;
 
     let result;
     if(initialState) {
       result = null;
+    } else if(isLoading) {
+      result = <p>Loading...</p>
     } else if(pictures.length > 0) {
       result =  <>
                   <h2>Results for {query}</h2>

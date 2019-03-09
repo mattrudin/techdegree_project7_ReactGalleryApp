@@ -19,6 +19,7 @@ class App extends Component {
     acaiBowlImages: [],
     initialState: true,
     query: '',
+    isLoading: false,
   }
 
   componentDidMount() {
@@ -28,11 +29,15 @@ class App extends Component {
   }
 
   performSearch = query => {
-    axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
+    this.setState({
+      isLoading: true,
+    });
+    axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&text=${query}&per_page=24&format=json&nojsoncallback=1`)
       .then(res => this.setState({
         images: res.data.photos.photo,
         initialState: false,
         query,
+        isLoading: false,
       }))
       .catch(err => console.log('Error fetching and parsing data:', err))
   }
@@ -55,7 +60,11 @@ class App extends Component {
             <Route exact path="/search/avocado" component={() => <Gallery pictures={this.state.avocadoImages} query={'avocado'}/>} />
             <Route exact path="/search/cats" component={() => <Gallery pictures={this.state.catsImages} query={'cats'}/>} />
             <Route exact path="/search/acai-bowl" component={() => <Gallery pictures={this.state.acaiBowlImages} query={'acai bowl'}/>} />
-            <Route path="/search/:query" component={() => <Gallery pictures={this.state.images} initialState={this.state.initialState} query={this.state.query}/>} />
+            <Route path="/search/:query" component={() => <Gallery 
+                pictures={this.state.images} 
+                initialState={this.state.initialState} 
+                query={this.state.query}
+                isLoading={this.state.isLoading} />} />
             <Route component={NotFound} />
           </Switch>
         </div>
