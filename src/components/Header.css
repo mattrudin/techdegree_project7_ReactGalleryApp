@@ -3,9 +3,13 @@
     src: url('./Fonts/Takhie.ttf') format('truetype');
 }
 
-.title {
+a .title {
     font-family: 'Tahkie';
     font-size: 8em;
     margin-bottom: 0;
     text-decoration: none;
+    color: #3f4850;
+    background: rgba(255, 255, 255, 0.7) url('./Images/brush_stroke.jpg') no-repeat center;
+    background-blend-mode: lighten;
+    background-size: contain;
 }
