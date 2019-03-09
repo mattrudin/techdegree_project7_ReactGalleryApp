@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import SearchButton from './SearchButton';
 
 class SearchForm extends Component {
   
-  searchInput = React.createRef();
-
   handleSubmit = event => {
     event.preventDefault();
-    this.props.onSearch(this.searchInput.current.value);
+    const query = this.query.value;
+    const path = `search/${query}`;
+    this.props.onSearch(query, 'images');
+    this.props.history.push(path);
     event.currentTarget.reset();
   }
 
@@ -19,7 +21,7 @@ class SearchForm extends Component {
           <input
             type="search" 
             placeholder="Search" 
-            ref={this.searchInput}
+            ref={ input => this.query = input}
             required />
           <SearchButton />  
         </form>
@@ -27,4 +29,4 @@ class SearchForm extends Component {
   }
 } 
 
-export default SearchForm;
+export default withRouter(SearchForm);
