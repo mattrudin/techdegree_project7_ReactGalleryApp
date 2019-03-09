@@ -7,8 +7,9 @@ class SearchForm extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const query = this.query.value;
-    const path = `search/${query}`;
-    this.props.onSearch(query, 'images');
+    const path = `/search/${query}`;
+    this.props.onSearch(query);
+    console.log(this.props.history);
     this.props.history.push(path);
     event.currentTarget.reset();
   }
