@@ -22,12 +22,14 @@ class App extends Component {
     isLoading: false,
   }
 
+  // Data fetching for the three default topic links
   componentDidMount() {
     this.presetSearch('avocado', 'avocadoImages');
     this.presetSearch('cats', 'catsImages');
     this.presetSearch('acai bowl', 'acaiBowlImages');
   }
 
+  // Data fetch method for the user search with axios
   performSearch = query => {
     this.setState({
       isLoading: true,
@@ -42,6 +44,7 @@ class App extends Component {
       .catch(err => console.log('Error fetching and parsing data:', err))
   }
 
+  // Data fetch method for the default links with axios
   presetSearch = (query, imageName) => {
     axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
       .then(res => this.setState({
@@ -65,6 +68,7 @@ class App extends Component {
                 initialState={this.state.initialState} 
                 query={this.state.query}
                 isLoading={this.state.isLoading} />} />
+            {/* Extra credit: 404 fallback route */}
             <Route component={NotFound} />
           </Switch>
         </div>

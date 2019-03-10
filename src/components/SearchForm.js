@@ -29,4 +29,5 @@ class SearchForm extends Component {
   }
 } 
 
+// withRouter connects the component to the history element of react-router-dom
 export default withRouter(SearchForm);
